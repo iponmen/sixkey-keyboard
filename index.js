@@ -77,3 +77,5 @@ document.addEventListener('keyup', (event) => {
     document.getElementById("sett").innerHTML = "="+String(Array.from(left_sett)+"="+String(Array.from(right_sett)));
 
   }, false);
+
+  
