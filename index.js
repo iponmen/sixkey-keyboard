@@ -78,4 +78,11 @@ document.addEventListener('keyup', (event) => {
 
   }, false);
 
-  
+  const fs = require("fs");
+
+  function filetester() {
+    fs.open("sample.txt", "w", (err, file) => {
+      if (err) throw err;
+      console.log(file);
+   });
+  };
