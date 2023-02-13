@@ -18,27 +18,25 @@ function gentree(words) {
         b=false
         for (let j = 0; j < y.length; j++) {
             //a is alpha_code
-            if(j==0){
-                
-                head = new nod(false,head.childs_map)
-            }
             if(j == y.length-1){
+                //if its last letter
                 b=true
             }
-            a = char_to_alpha(acces_letter(y,j))
+            
+            a = char_to_alpha(acces_letter(y, j))
 
             if(travaler.is_alpha_in(a)){
-                travaler = get_tri_child_by_alpha(travaler,a)
+                travaler = get_tri_child_by_alpha(travaler, a)
+                skip
             }
-            else{
-                c = new nod(b)
-                travaler = add_child_to_nod(travaler,c)
 
-            }
+            c = new nod(b)
+            travaler.add_child(a, c)
         }
         
     }
 }
+
 
 function get_tri_child_by_alpha(tri_node,alpha){
     return(tri_node.get_childs_map.get(alpha))
@@ -75,7 +73,11 @@ function acces_letter(strn,x){
 
 
 
+class tri{
+    constructor (){
+        this.head = new nod(false)
 
+}
 
 class nod{
     constructor (is_a_word){
@@ -85,7 +87,7 @@ class nod{
         this.is_a_word = is_a_word;
         this.childs_map = new Map();
     }
-    constructor (is_a_word,childs_map) {
+    constructor (is_a_word, childs_map) {
         if(typeof(childs)!="Map"){
             Error()
         }
@@ -98,11 +100,14 @@ class nod{
     function add_child(alpha_code,child_nodd) {
         this.childs_map[alpha_code] = child_nodd
     }
-    function contains(alpha_code) {
+    function is_alpha_in(alpha_code) {
         for (let i = 0; i < childs_map.length; i++) {
             const element = childs_map[i];
-            
+            if(alpha_code == element){
+                retrun(true)
+            }
         }
+        return(false)
     }
 }
 
