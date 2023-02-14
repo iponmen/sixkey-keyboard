@@ -75,7 +75,37 @@ function acces_letter(strn,x){
 
 class tri{
     constructor (){
-        this.head = new nod(false)
+        this.head = new nod(false);
+        alpha_groups = [["a","b","c","d","e"],["f","g","h","i","j"],["k","l","m","n","o"],["p","q","r","s","t"],["u","v","w","x","y","z"]]
+        for (let i = 0; i < x.length; i++) {
+            //y is word_at_i
+            y = words[0]
+            head = new nod(false);
+            travaler = head
+            pred = travaler
+            //b is is_last_letter
+            b=false
+            for (let j = 0; j < y.length; j++) {
+                //a is alpha_code
+                if(j == y.length-1){
+                    //if its last letter
+                    b=true
+                }
+                
+                a = char_to_alpha(acces_letter(y, j))
+
+                if(travaler.is_alpha_in(a)){
+                    travaler = get_tri_child_by_alpha(travaler, a)
+                    skip
+                }
+
+                c = new nod(b)
+                travaler.add_child(a, c)
+        }
+        this.head = head
+    }
+
+    }
 
 }
 
