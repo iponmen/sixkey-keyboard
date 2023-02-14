@@ -1,0 +1,67 @@
+class tri{
+    constructor (){
+        this.head = new nod(false);
+        alpha_groups = [["a","b","c","d","e"],["f","g","h","i","j"],["k","l","m","n","o"],["p","q","r","s","t"],["u","v","w","x","y","z"]]
+        for (let i = 0; i < x.length; i++) {
+            //y is word_at_i
+            y = words[0]
+            head = new nod(false);
+            travaler = head
+            pred = travaler
+            //b is is_last_letter
+            b=false
+            for (let j = 0; j < y.length; j++) {
+                //a is alpha_code
+                if(j == y.length-1){
+                    //if its last letter
+                    b=true
+                }
+                
+                a = char_to_alpha(acces_letter(y, j))
+
+                if(travaler.is_alpha_in(a)){
+                    travaler = get_tri_child_by_alpha(travaler, a)
+                    skip
+                }
+
+                c = new nod(b)
+                travaler.add_child(a, c)
+        }
+        this.head = head
+    }
+
+    }
+
+}
+
+class nod{
+    constructor (is_a_word, childs_map){
+        if(typeof(is_a_word)!="Boolian"){
+            Error()
+        }
+        this.is_a_word = is_a_word;
+        if(childs_map==null){
+            this.childs_map = new Map();
+            retrun
+        }
+        if(typeof(childs)!="Map"){
+            Error()
+        }
+        if(typeof(nod1)!="nod"){
+            Error()
+        }
+        this.childs_map = childs_map
+    }
+    add_child(alpha_code,child_nodd) {
+        this.childs_map[alpha_code] = child_nodd
+    }
+    is_alpha_in(alpha_code) {
+        for (let i = 0; i < childs_map.length; i++) {
+            const element = childs_map[i];
+            if(alpha_code == element){
+                retrun(true)
+            }
+        }
+        return(false)
+    }
+}
